@@ -7,11 +7,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checando o código
+        uses: actions/checkout@v2
+
       - name: Instalando dependências
-        run: npm i -d
+        run: npm install --save-dev
 
       - name: Executando testes
-        run: npm run test   
+        run: npm run test
 
       - name: Executando testes de cobertura
         run: npm run test:coverage
