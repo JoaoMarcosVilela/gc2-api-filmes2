@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: Instalando dependências
-        run: npm i -D
+        run: npm i -d
 
       - name: Executando testes
-        run: npm run test
+        run: npm run test   
 
       - name: Executando testes de cobertura
         run: npm run test:coverage
