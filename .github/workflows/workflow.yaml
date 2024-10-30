@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      -name: Instalando dependencias
+      - name: Instalando dependências
         run: npm i -D
 
-      -name: Executando testes
+      - name: Executando testes
         run: npm run test
 
-      -name: Executando testes cobertura
-        run: npp run test:coverage
+      - name: Executando testes de cobertura
+        run: npm run test:coverage
