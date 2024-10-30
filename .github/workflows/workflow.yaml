@@ -1,0 +1,17 @@
+name: Meu primeiro workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      -name: Instalando dependencias
+        run: npm i -D
+
+      -name: Executando testes
+        run: npm run test
+
+      -name: Executando testes cobertura
+        run: npp run test:coverage
