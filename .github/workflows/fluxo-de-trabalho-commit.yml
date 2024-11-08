@@ -1,0 +1,37 @@
+name: Fluxo de Trabalho para Commit
+
+on:
+  push:
+    branches:
+      - feat/testes  # ou a branch específica onde você quer monitorar os commits
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Checando o código
+      - name: Checando o código
+        uses: actions/checkout@v2
+
+      # Passo 2: Trocando para uma branch específica (exemplo: "feature/branch-nome")
+      - name: Trocando para branch específica
+        run: git checkout feat/testes
+
+      # Passo 3: Instalando o compilador/interpretador (ajuste conforme sua linguagem)
+      - name: Instalando o Node.js versão 21
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21'  # ou a versão que você precisa
+
+      # Passo 4: Instalando as dependências do projeto
+      - name: Instalando dependências
+        run: npm install
+
+      # Passo 5: Executando testes
+      - name: Executando testes
+        run: npm run test
+
+      # Passo 6: Executando testes de cobertura
+      - name: Executando testes de cobertura
+        run: npm run test:coverage
